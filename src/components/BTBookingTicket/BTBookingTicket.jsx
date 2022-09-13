@@ -2,6 +2,7 @@ import React, { Component } from 'react'
 import './BaiTapBookingTicket.css'
 import data from './danhSachGhe.json'
 import HangGhe from './HangGhe'
+import ThongTinDatVe from './ThongTinDatVe'
 
 export default class BTBookingTicket extends Component {
     renderHangGhe = () => {
@@ -40,32 +41,7 @@ export default class BTBookingTicket extends Component {
                         </div>
                     </div>
                     <div className='col-4'>
-                        <h3 className='my-3'>CONFIRM SELECTION</h3>
-                        {/* Selection Information */}
-                        <table className="table table-lg table-bordered border border-3">
-                            <thead>
-                                <tr>
-                                    <td className='text-warning'>Number</td>
-                                    <td className='text-warning'>Price</td>
-                                    <td className='text-warning'>Cancel</td>
-                                </tr>
-                            </thead>
-                            <tbody>
-                                <tr>
-                                    <td>A1</td>
-                                    <td>100</td>
-                                    <td>
-                                        <button className="btn btn-danger">
-                                            <i className="fa-solid fa-xmark"></i>
-                                        </button>
-                                    </td>
-                                </tr>
-                                <tr>
-                                    <td className='text-warning'>Total</td>
-                                    <td>100</td>
-                                </tr>
-                            </tbody>
-                        </table>
+                        <ThongTinDatVe />
                     </div>
                 </div>
             </div>

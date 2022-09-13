@@ -3,13 +3,16 @@ import { connect } from "react-redux";
 
 class HangGhe extends Component {
     render() {
-        const { hangGhe, soHangGhe, datGhe } = this.props;
+        const { hangGhe, soHangGhe, datGhe, danhSachGheDangDat } = this.props;
         const renderGhe = () => {
             return hangGhe.danhSachGhe.map((ghe, index) => {
                 let cssGheDaDat = "";
+                let disabled = false;
                 if (ghe.daDat) {
                     cssGheDaDat = "gheDuocChon";
+                    disabled = true;
                 };
+
 
                 let cssGheDangDat = "";
                 let indexGheDangDat = danhSachGheDangDat.findIndex(gheDangDat => gheDangDat.soGhe === ghe.soGhe);
@@ -18,7 +21,7 @@ class HangGhe extends Component {
                 };
 
                 return (
-                    <button onClick={() => { datGhe(ghe) }} className={`ghe ${cssGheDaDat} ${cssGheDangDat}`} key={index}>
+                    <button onClick={() => { datGhe(ghe) }} disabled={disabled} className={`ghe ${cssGheDaDat} ${cssGheDangDat}`} key={index}>
                         {index + 1}
                     </button>
                 );
@@ -63,7 +66,7 @@ const mapDispatchToProps = (dispatch) => {
         datGhe: (ghe) => {
             dispatch({
                 type: 'DAT_GHE',
-                payload: ghe,
+                ghe,
             })
         }
     }
